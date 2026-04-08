@@ -1,6 +1,6 @@
 [
   {
-    "id": 133,
+    "id": 143,
     "date": "2026-04-07",
     "project_id": "9a16689acaa6b884",
     "project_name": "峰尚名邸",
@@ -8,11 +8,11 @@
     "selled_count": 251,
     "leaving_count": 745,
     "selled_avg_price": null,
-    "fetched_at": "2026-04-08T06:10:35.242Z",
-    "created_at": "2026-04-08 06:10:36"
+    "fetched_at": "2026-04-08T06:12:35.448Z",
+    "created_at": "2026-04-08 06:12:36"
   },
   {
-    "id": 134,
+    "id": 144,
     "date": "2026-04-07",
     "project_id": "704c7c19cf411039",
     "project_name": "奕瑭华庭",
@@ -20,11 +20,11 @@
     "selled_count": 220,
     "leaving_count": 160,
     "selled_avg_price": null,
-    "fetched_at": "2026-04-08T06:10:35.242Z",
-    "created_at": "2026-04-08 06:10:36"
+    "fetched_at": "2026-04-08T06:12:35.448Z",
+    "created_at": "2026-04-08 06:12:36"
   },
   {
-    "id": 135,
+    "id": 145,
     "date": "2026-04-07",
     "project_id": "afd72dd331f09179",
     "project_name": "龙湾璟苑",
@@ -32,11 +32,11 @@
     "selled_count": 148,
     "leaving_count": 2292,
     "selled_avg_price": null,
-    "fetched_at": "2026-04-08T06:10:35.242Z",
-    "created_at": "2026-04-08 06:10:36"
+    "fetched_at": "2026-04-08T06:12:35.448Z",
+    "created_at": "2026-04-08 06:12:36"
   },
   {
-    "id": 136,
+    "id": 146,
     "date": "2026-04-07",
     "project_id": "6c746a818b7e15fa",
     "project_name": "松江区洞泾镇SJS30003单元01-13号地块项目",
@@ -44,11 +44,11 @@
     "selled_count": 146,
     "leaving_count": 136,
     "selled_avg_price": null,
-    "fetched_at": "2026-04-08T06:10:35.242Z",
-    "created_at": "2026-04-08 06:10:36"
+    "fetched_at": "2026-04-08T06:12:35.448Z",
+    "created_at": "2026-04-08 06:12:36"
   },
   {
-    "id": 137,
+    "id": 147,
     "date": "2026-04-07",
     "project_id": "0bf3c1946c486232",
     "project_name": "臻澜苑",
@@ -56,11 +56,11 @@
     "selled_count": 120,
     "leaving_count": 135,
     "selled_avg_price": null,
-    "fetched_at": "2026-04-08T06:10:35.242Z",
-    "created_at": "2026-04-08 06:10:36"
+    "fetched_at": "2026-04-08T06:12:35.448Z",
+    "created_at": "2026-04-08 06:12:36"
   },
   {
-    "id": 138,
+    "id": 148,
     "date": "2026-04-07",
     "project_id": "8421cf8fa1eeca9d",
     "project_name": "思致商业广场三期",
@@ -68,11 +68,11 @@
     "selled_count": 99,
     "leaving_count": 525,
     "selled_avg_price": null,
-    "fetched_at": "2026-04-08T06:10:35.242Z",
-    "created_at": "2026-04-08 06:10:36"
+    "fetched_at": "2026-04-08T06:12:35.448Z",
+    "created_at": "2026-04-08 06:12:36"
   },
   {
-    "id": 139,
+    "id": 149,
     "date": "2026-04-07",
     "project_id": "5b53843fc1f02acb",
     "project_name": "金悦名庭",
@@ -80,11 +80,11 @@
     "selled_count": 92,
     "leaving_count": 534,
     "selled_avg_price": null,
-    "fetched_at": "2026-04-08T06:10:35.242Z",
-    "created_at": "2026-04-08 06:10:36"
+    "fetched_at": "2026-04-08T06:12:35.448Z",
+    "created_at": "2026-04-08 06:12:36"
   },
   {
-    "id": 140,
+    "id": 150,
     "date": "2026-04-07",
     "project_id": "50bd623f81306ce9",
     "project_name": "鼎立高尔夫花园",
@@ -92,11 +92,11 @@
     "selled_count": 55,
     "leaving_count": 271,
     "selled_avg_price": null,
-    "fetched_at": "2026-04-08T06:10:35.242Z",
-    "created_at": "2026-04-08 06:10:36"
+    "fetched_at": "2026-04-08T06:12:35.448Z",
+    "created_at": "2026-04-08 06:12:36"
   },
   {
-    "id": 141,
+    "id": 151,
     "date": "2026-04-07",
     "project_id": "8fbde5db518ca368",
     "project_name": "惠诚悦华里",
@@ -104,11 +104,11 @@
     "selled_count": 48,
     "leaving_count": 170,
     "selled_avg_price": null,
-    "fetched_at": "2026-04-08T06:10:35.242Z",
-    "created_at": "2026-04-08 06:10:37"
+    "fetched_at": "2026-04-08T06:12:35.448Z",
+    "created_at": "2026-04-08 06:12:37"
   },
   {
-    "id": 142,
+    "id": 152,
     "date": "2026-04-07",
     "project_id": "ada355be1a07eca2",
     "project_name": "科宸云筑",
@@ -116,7 +116,7 @@
     "selled_count": 45,
     "leaving_count": 625,
     "selled_avg_price": null,
-    "fetched_at": "2026-04-08T06:10:35.242Z",
-    "created_at": "2026-04-08 06:10:37"
+    "fetched_at": "2026-04-08T06:12:35.448Z",
+    "created_at": "2026-04-08 06:12:37"
   }
 ]
