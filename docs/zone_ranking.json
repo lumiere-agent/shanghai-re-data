@@ -1,0 +1,182 @@
+[
+  {
+    "id": 1,
+    "date": "2026-04-08",
+    "zone_id": "5391be55e75e5506",
+    "zone_name": "浦东新区",
+    "selled_area": 437858.81,
+    "fetched_at": "2026-04-08T03:42:48.697Z",
+    "created_at": "2026-04-08 03:42:50"
+  },
+  {
+    "id": 2,
+    "date": "2026-04-08",
+    "zone_id": "e5cf885d0ef25e94",
+    "zone_name": "闵行区",
+    "selled_area": 185766.47,
+    "fetched_at": "2026-04-08T03:42:48.697Z",
+    "created_at": "2026-04-08 03:42:50"
+  },
+  {
+    "id": 3,
+    "date": "2026-04-08",
+    "zone_id": "d095fa89de83a452",
+    "zone_name": "嘉定区",
+    "selled_area": 137617.67,
+    "fetched_at": "2026-04-08T03:42:48.697Z",
+    "created_at": "2026-04-08 03:42:50"
+  },
+  {
+    "id": 4,
+    "date": "2026-04-08",
+    "zone_id": "c3a04b33d3238385",
+    "zone_name": "松江区",
+    "selled_area": 102040.74,
+    "fetched_at": "2026-04-08T03:42:48.697Z",
+    "created_at": "2026-04-08 03:42:50"
+  },
+  {
+    "id": 5,
+    "date": "2026-04-08",
+    "zone_id": "ef8c008816798859",
+    "zone_name": "青浦区",
+    "selled_area": 100889.93,
+    "fetched_at": "2026-04-08T03:42:48.697Z",
+    "created_at": "2026-04-08 03:42:51"
+  },
+  {
+    "id": 6,
+    "date": "2026-04-08",
+    "zone_id": "2385fa574f10a564",
+    "zone_name": "宝山区",
+    "selled_area": 79177.15,
+    "fetched_at": "2026-04-08T03:42:48.697Z",
+    "created_at": "2026-04-08 03:42:51"
+  },
+  {
+    "id": 7,
+    "date": "2026-04-08",
+    "zone_id": "45c69c52e212e98d",
+    "zone_name": "奉贤区",
+    "selled_area": 57845.37,
+    "fetched_at": "2026-04-08T03:42:48.697Z",
+    "created_at": "2026-04-08 03:42:51"
+  },
+  {
+    "id": 8,
+    "date": "2026-04-08",
+    "zone_id": "d6ff877c62587d67",
+    "zone_name": "崇明区",
+    "selled_area": 54575.97,
+    "fetched_at": "2026-04-08T03:42:48.697Z",
+    "created_at": "2026-04-08 03:42:51"
+  },
+  {
+    "id": 9,
+    "date": "2026-04-08",
+    "zone_id": "53c7b05ea45cf006",
+    "zone_name": "徐汇区",
+    "selled_area": 54166.1,
+    "fetched_at": "2026-04-08T03:42:48.697Z",
+    "created_at": "2026-04-08 03:42:51"
+  },
+  {
+    "id": 10,
+    "date": "2026-04-08",
+    "zone_id": "5560708b21685990",
+    "zone_name": "杨浦区",
+    "selled_area": 44509.19,
+    "fetched_at": "2026-04-08T03:42:48.697Z",
+    "created_at": "2026-04-08 03:42:51"
+  },
+  {
+    "id": 11,
+    "date": "2026-04-08",
+    "zone_id": "1c1f50e015c71814",
+    "zone_name": "金山区",
+    "selled_area": 39361.29,
+    "fetched_at": "2026-04-08T03:42:48.697Z",
+    "created_at": "2026-04-08 03:42:51"
+  },
+  {
+    "id": 12,
+    "date": "2026-04-08",
+    "zone_id": "9999a061b2bf2968",
+    "zone_name": "普陀区",
+    "selled_area": 35849.4,
+    "fetched_at": "2026-04-08T03:42:48.697Z",
+    "created_at": "2026-04-08 03:42:51"
+  },
+  {
+    "id": 13,
+    "date": "2026-04-08",
+    "zone_id": "27d3af3bd45acf5e",
+    "zone_name": "黄浦区",
+    "selled_area": 32661.5,
+    "fetched_at": "2026-04-08T03:42:48.697Z",
+    "created_at": "2026-04-08 03:42:52"
+  },
+  {
+    "id": 14,
+    "date": "2026-04-08",
+    "zone_id": "3e9d0ed5cf865b9b",
+    "zone_name": "静安区",
+    "selled_area": 16282.08,
+    "fetched_at": "2026-04-08T03:42:48.697Z",
+    "created_at": "2026-04-08 03:42:52"
+  },
+  {
+    "id": 15,
+    "date": "2026-04-08",
+    "zone_id": "e153da3d0ca1946e",
+    "zone_name": "虹口区",
+    "selled_area": 16069.29,
+    "fetched_at": "2026-04-08T03:42:48.697Z",
+    "created_at": "2026-04-08 03:42:53"
+  },
+  {
+    "id": 16,
+    "date": "2026-04-08",
+    "zone_id": "c25cb8e534080b41",
+    "zone_name": "长宁区",
+    "selled_area": 14007.28,
+    "fetched_at": "2026-04-08T03:42:48.697Z",
+    "created_at": "2026-04-08 03:42:53"
+  },
+  {
+    "id": 17,
+    "date": "2026-04-08",
+    "zone_id": "6ca9fe5a544e3555",
+    "zone_name": "上海市",
+    "selled_area": 334.32,
+    "fetched_at": "2026-04-08T03:42:48.697Z",
+    "created_at": "2026-04-08 03:42:53"
+  },
+  {
+    "id": 18,
+    "date": "2026-04-08",
+    "zone_id": "5591ec7dfc0c3b7b",
+    "zone_name": "南汇区",
+    "selled_area": 0,
+    "fetched_at": "2026-04-08T03:42:48.697Z",
+    "created_at": "2026-04-08 03:42:53"
+  },
+  {
+    "id": 19,
+    "date": "2026-04-08",
+    "zone_id": "c3243f2018413f06",
+    "zone_name": "卢湾区",
+    "selled_area": 0,
+    "fetched_at": "2026-04-08T03:42:48.697Z",
+    "created_at": "2026-04-08 03:42:53"
+  },
+  {
+    "id": 20,
+    "date": "2026-04-08",
+    "zone_id": "dc24b8a987de1555",
+    "zone_name": "闸北区",
+    "selled_area": 0,
+    "fetched_at": "2026-04-08T03:42:48.697Z",
+    "created_at": "2026-04-08 03:42:53"
+  }
+]

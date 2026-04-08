@@ -13,6 +13,7 @@
 
 const { chromium } = require('playwright');
 const sqlite3 = require('sqlite3').verbose();
+const { execSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 
@@ -509,3 +510,4 @@ async function main() {
 }
 
 main();
+autoExport();

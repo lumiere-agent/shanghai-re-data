@@ -1,0 +1,11 @@
+{
+  "lastUpdated": "2026-04-08T03:51:21.453Z",
+  "dataFiles": [
+    "daily_summary.json",
+    "zone_ranking.json",
+    "first_hand_transaction.json",
+    "first_hand_inventory.json",
+    "second_hand_sell.json",
+    "project_ranking.json"
+  ]
+}

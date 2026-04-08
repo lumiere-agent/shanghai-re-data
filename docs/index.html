@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>上海房地产成交数据 - 实时看板</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: #f5f7fa;
+      color: #333;
+      min-height: 100vh;
+    }
+    
+    .header {
+      background: linear-gradient(135deg, #1a73e8 0%, #0d47a1 100%);
+      color: white;
+      padding: 24px 32px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    
+    .header h1 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    
+    .header .subtitle {
+      font-size: 14px;
+      opacity: 0.9;
+    }
+    
+    .last-updated {
+      font-size: 12px;
+      opacity: 0.7;
+      margin-top: 8px;
+    }
+    
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    
+    .summary-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    
+    .card-label {
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 8px;
+    }
+    
+    .card-value {
+      font-size: 28px;
+      font-weight: 700;
+      color: #1a73e8;
+    }
+    
+    .card-value.large {
+      font-size: 36px;
+    }
+    
+    .card-unit {
+      font-size: 14px;
+      color: #888;
+      margin-left: 4px;
+    }
+    
+    .card-sub {
+      font-size: 12px;
+      color: #888;
+      margin-top: 4px;
+    }
+    
+    .section {
+      background: white;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    
+    .section-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #f0f0f0;
+    }
+    
+    .charts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 24px;
+    }
+    
+    .chart-container {
+      height: 300px;
+      position: relative;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    th, td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    
+    th {
+      background: #f8f9fa;
+      font-weight: 600;
+      font-size: 13px;
+      color: #555;
+    }
+    
+    td {
+      font-size: 14px;
+    }
+    
+    tr:hover {
+      background: #f8f9fa;
+    }
+    
+    .rank-badge {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #e8f0fe;
+      color: #1a73e8;
+      text-align: center;
+      line-height: 24px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-right: 8px;
+    }
+    
+    .rank-badge.gold { background: #fff3e0; color: #f57c00; }
+    .rank-badge.silver { background: #f5f5f5; color: #757575; }
+    .rank-badge.bronze { background: #fff8e1; color: #ff8f00; }
+    
+    .loading {
+      text-align: center;
+      padding: 60px;
+      color: #888;
+    }
+    
+    .error {
+      background: #ffebee;
+      color: #c62828;
+      padding: 16px 24px;
+      border-radius: 8px;
+      margin-bottom: 24px;
+    }
+    
+    .footer {
+      text-align: center;
+      padding: 24px;
+      color: #888;
+      font-size: 13px;
+    }
+    
+    @media (max-width: 768px) {
+      .charts-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .container {
+        padding: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>🏠 上海房地产成交数据看板</h1>
+    <div class="subtitle">数据来源：上海房地产交易中心 fangdi.com.cn</div>
+    <div class="last-updated" id="lastUpdated">加载中...</div>
+  </div>
+  
+  <div class="container">
+    <div id="error" class="error" style="display:none;"></div>
+    
+    <!-- 关键指标卡片 -->
+    <div class="summary-cards" id="summaryCards">
+      <div class="card">
+        <div class="card-label">数据日期</div>
+        <div class="card-value" id="dataDate">--</div>
+      </div>
+      <div class="card">
+        <div class="card-label">总成交套数</div>
+        <div class="card-value" id="totalCount">--</div>
+      </div>
+      <div class="card">
+        <div class="card-label">总成交面积</div>
+        <div class="card-value" id="totalArea">--<span class="card-unit">m²</span></div>
+      </div>
+      <div class="card">
+        <div class="card-label">新建商品房成交</div>
+        <div class="card-value" id="newHouseCount">--<span class="card-unit">套</span></div>
+        <div class="card-sub" id="newHouseArea">-- m²</div>
+      </div>
+      <div class="card">
+        <div class="card-label">二手住宅成交</div>
+        <div class="card-value" id="secondHandCount">--<span class="card-unit">套</span></div>
+        <div class="card-sub" id="secondHandArea">-- m²</div>
+      </div>
+    </div>
+    
+    <!-- 图表区域 -->
+    <div class="section">
+      <h2 class="section-title">📊 数据可视化</h2>
+      <div class="charts-grid">
+        <div class="chart-container">
+          <canvas id="zoneChart"></canvas>
+        </div>
+        <div class="chart-container">
+          <canvas id="inventoryChart"></canvas>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 各区成交排名 -->
+    <div class="section">
+      <h2 class="section-title">🏆 各区成交面积排名</h2>
+      <table id="zoneRankingTable">
+        <thead>
+          <tr>
+            <th>排名</th>
+            <th>区域</th>
+            <th>成交面积 (m²)</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    
+    <!-- 一手房成交排名 -->
+    <div class="section">
+      <h2 class="section-title">🏠 一手房成交 TOP 20</h2>
+      <table id="projectRankingTable">
+        <thead>
+          <tr>
+            <th>排名</th>
+            <th>项目名称</th>
+            <th>区域</th>
+            <th>成交套数</th>
+            <th>可售套数</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    
+    <!-- 一手房交易统计 -->
+    <div class="section">
+      <h2 class="section-title">📈 一手房交易统计 (各区)</h2>
+      <table id="transactionTable">
+        <thead>
+          <tr>
+            <th>区域</th>
+            <th>当期签约套数</th>
+            <th>当期签约面积</th>
+            <th>当期签约均价</th>
+            <th>累计签约套数</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    
+    <!-- 二手房挂牌 -->
+    <div class="section">
+      <h2 class="section-title">🏠 二手房挂牌出售 (各区)</h2>
+      <table id="secondHandTable">
+        <thead>
+          <tr>
+            <th>区域</th>
+            <th>挂牌套数</th>
+            <th>挂牌面积 (m²)</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+  
+  <div class="footer">
+    <p>数据每日自动更新 | 由 GitHub Actions 驱动</p>
+    <p>GitHub: <a href="https://github.com/lumiere-agent/shanghai-re-data">lumiere-agent/shanghai-re-data</a></p>
+  </div>
+
+  <script>
+    // 全局图表实例
+    let zoneChart = null;
+    let inventoryChart = null;
+    
+    // 格式化数字
+    function formatNumber(num) {
+      if (num === null || num === undefined) return '--';
+      return num.toLocaleString('zh-CN');
+    }
+    
+    // 格式化面积
+    function formatArea(area) {
+      if (area === null || area === undefined) return '--';
+      return (area / 10000).toFixed(2) + ' 万m²';
+    }
+    
+    // 加载数据
+    async function loadData() {
+      try {
+        const [indexRes, dailyRes, zoneRes, projectRes, transactionRes, inventoryRes, secondHandRes] = await Promise.all([
+          fetch('index.json'),
+          fetch('daily_summary.json'),
+          fetch('zone_ranking.json'),
+          fetch('project_ranking.json'),
+          fetch('first_hand_transaction.json'),
+          fetch('first_hand_inventory.json'),
+          fetch('second_hand_sell.json')
+        ]);
+        
+        const index = await indexRes.json();
+        const daily = await dailyRes.json();
+        const zones = await zoneRes.json();
+        const projects = await projectRes.json();
+        const transactions = await transactionRes.json();
+        const inventory = await inventoryRes.json();
+        const secondHand = await secondHandRes.json();
+        
+        // 更新时间
+        document.getElementById('lastUpdated').textContent = 
+          `最后更新: ${new Date(index.lastUpdated).toLocaleString('zh-CN')}`;
+        
+        // 渲染摘要卡片
+        renderSummary(daily[0]);
+        
+        // 渲染图表
+        renderZoneChart(zones);
+        renderInventoryChart(inventory);
+        
+        // 渲染表格
+        renderTable('zoneRankingTable', zones, [
+          { key: 'zonename', label: '区域' },
+          { key: 'selled_area', label: '成交面积', format: formatArea }
+        ]);
+        
+        renderTable('projectRankingTable', projects.slice(0, 20), [
+          { key: 'projectname', label: '项目名称' },
+          { key: 'zone_name', label: '区域' },
+          { key: 'selled_count', label: '成交套数', format: formatNumber },
+          { key: 'leaving_count', label: '可售套数', format: formatNumber }
+        ]);
+        
+        renderTable('transactionTable', transactions.filter(t => t.zone_name !== '全市'), [
+          { key: 'zone_name', label: '区域' },
+          { key: 'sign_num', label: '当期签约套数', format: formatNumber },
+          { key: 'sign_area', label: '当期签约面积', format: (v) => v ? (v/10000).toFixed(2) + ' 万m²' : '--' },
+          { key: 'sign_avg_price', label: '当期签约均价', format: (v) => v ? v.toLocaleString() + ' 元/m²' : '--' },
+          { key: 'all_sign_num', label: '累计签约套数', format: formatNumber }
+        ]);
+        
+        renderTable('secondHandTable', secondHand, [
+          { key: 'zone_name', label: '区域' },
+          { key: 'leaving_num', label: '挂牌套数', format: formatNumber },
+          { key: 'leaving_area', label: '挂牌面积', format: (v) => (v/10000).toFixed(2) + ' 万m²' }
+        ]);
+        
+      } catch (error) {
+        console.error('加载数据失败:', error);
+        document.getElementById('error').style.display = 'block';
+        document.getElementById('error').textContent = 
+          '数据加载失败，请确保在 Web 服务器上访问此页面（CORS 限制）。本地运行: python3 -m http.server 8080';
+      }
+    }
+    
+    // 渲染摘要卡片
+    function renderSummary(data) {
+      if (!data) return;
+      
+      document.getElementById('dataDate').textContent = data.sys_date || '--';
+      document.getElementById('totalCount').textContent = formatNumber(data.total_count);
+      document.getElementById('totalArea').innerHTML = (data.total_area / 10000).toFixed(2) + '<span class="card-unit">万m²</span>';
+      document.getElementById('newHouseCount').textContent = formatNumber(data.new_house_count);
+      document.getElementById('newHouseArea').textContent = (data.new_house_area / 10000).toFixed(2) + ' 万m²';
+      document.getElementById('secondHandCount').textContent = formatNumber(data.second_hand_count);
+      document.getElementById('secondHandArea').textContent = (data.second_hand_area / 10000).toFixed(2) + ' 万m²';
+    }
+    
+    // 渲染区成交图表
+    function renderZoneChart(zones) {
+      const ctx = document.getElementById('zoneChart').getContext('2d');
+      
+      if (zoneChart) zoneChart.destroy();
+      
+      zoneChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: zones.slice(0, 10).map(z => z.zonename),
+          datasets: [{
+            label: '成交面积 (m²)',
+            data: zones.slice(0, 10).map(z => z.selled_area),
+            backgroundColor: 'rgba(26, 115, 232, 0.8)',
+            borderRadius: 4
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            title: {
+              display: true,
+              text: '各区成交面积 TOP 10',
+              font: { size: 16 }
+            },
+            legend: { display: false }
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              title: { display: true, text: '面积 (m²)' }
+            }
+          }
+        }
+      });
+    }
+    
+    // 渲染可售库存图表
+    function renderInventoryChart(inventory) {
+      const ctx = document.getElementById('inventoryChart').getContext('2d');
+      
+      if (inventoryChart) inventoryChart.destroy();
+      
+      // 过滤掉"全市"数据
+      const filtered = inventory.filter(i => i.zonename !== '全市').slice(0, 10);
+      
+      inventoryChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: filtered.map(i => i.zonename),
+          datasets: [{
+            label: '可售套数',
+            data: filtered.map(i => i.residence_leaving_num),
+            backgroundColor: 'rgba(56, 142, 60, 0.8)',
+            borderRadius: 4
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            title: {
+              display: true,
+              text: '各区住宅可售套数 TOP 10',
+              font: { size: 16 }
+            },
+            legend: { display: false }
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              title: { display: true, text: '可售套数' }
+            }
+          }
+        }
+      });
+    }
+    
+    // 渲染表格
+    function renderTable(tableId, data, columns) {
+      const tbody = document.querySelector(`#${tableId} tbody`);
+      tbody.innerHTML = '';
+      
+      data.forEach((row, index) => {
+        const tr = document.createElement('tr');
+        
+        columns.forEach((col, colIndex) => {
+          const td = document.createElement('td');
+          
+          if (colIndex === 0 && index < 3) {
+            // 排名 badge
+            const badge = document.createElement('span');
+            badge.className = `rank-badge ${index === 0 ? 'gold' : index === 1 ? 'silver' : 'bronze'}`;
+            badge.textContent = index + 1;
+            td.appendChild(badge);
+          }
+          
+          const value = col.format ? col.format(row[col.key]) : (row[col.key] || '--');
+          td.appendChild(document.createTextNode(value));
+          tr.appendChild(td);
+        });
+        
+        tbody.appendChild(tr);
+      });
+    }
+    
+    // 启动
+    loadData();
+  </script>
+</body>
+</html>
