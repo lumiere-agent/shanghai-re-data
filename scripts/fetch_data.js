@@ -181,6 +181,7 @@ function initDatabase() {
  */
 function saveDailySummary(db, date, data, fetchedAt) {
   const hr = data.houseReview || {};
+  const actualDate = hr.sysDate || date;
   
   const stmt = db.prepare(`
     INSERT OR REPLACE INTO daily_summary 
@@ -191,7 +192,7 @@ function saveDailySummary(db, date, data, fetchedAt) {
   `);
   
   stmt.run(
-    date,
+    actualDate,
     hr.sysDate || date,
     hr.todayselledcount || 0,
     hr.todayselledarea || 0,
@@ -212,6 +213,8 @@ function saveDailySummary(db, date, data, fetchedAt) {
  * 保存一手房交易统计
  */
 function saveFirstHandTransaction(db, date, data, fetchedAt) {
+  const hr = data.houseReview || {};
+  const actualDate = hr.sysDate || date;
   const stats = data.firstTransactionStat?.TransactionStat || [];
   
   const stmt = db.prepare(`
@@ -226,7 +229,7 @@ function saveFirstHandTransaction(db, date, data, fetchedAt) {
   
   for (const s of stats) {
     stmt.run(
-      date, s.zoneid, s.zonename,
+      actualDate, s.zoneid, s.zonename,
       s.sign_num || 0, s.sign_area || 0, s.sign_avgprice || 0,
       s.all_sign_num || 0, s.all_sign_area || 0, s.all_sign_avgprice || 0,
       s.z_sign_num || 0, s.z_sign_area || 0, s.z_sign_avgprice || 0,
@@ -242,6 +245,8 @@ function saveFirstHandTransaction(db, date, data, fetchedAt) {
  * 保存一手房可售统计
  */
 function saveFirstHandInventory(db, date, data, fetchedAt) {
+  const hr = data.houseReview || {};
+  const actualDate = hr.sysDate || date;
   const stats = data.firstvendibilityStat?.listFirstvendibility || [];
   
   const stmt = db.prepare(`
@@ -254,7 +259,7 @@ function saveFirstHandInventory(db, date, data, fetchedAt) {
   
   for (const s of stats) {
     stmt.run(
-      date, s.zoneid, s.zonename,
+      actualDate, s.zoneid, s.zonename,
       s.z_leaving_num || 0, s.z_leaving_area || 0,
       s.z_leaving_num_p || 0,
       s.s_leaving_num || 0, s.s_leaving_area || 0,
@@ -269,6 +274,8 @@ function saveFirstHandInventory(db, date, data, fetchedAt) {
  * 保存二手房挂牌出售
  */
 function saveSecondHandListingSell(db, date, data, fetchedAt) {
+  const hr = data.houseReview || {};
+  const actualDate = hr.sysDate || date;
   const stats = data.secondListingSell?.SecondListingSell || [];
   
   const stmt = db.prepare(`
@@ -278,7 +285,7 @@ function saveSecondHandListingSell(db, date, data, fetchedAt) {
   `);
   
   for (const s of stats) {
-    stmt.run(date, s.zoneid, s.zonename, s.zonetype, s.leaving_num || 0, s.leaving_area || 0, fetchedAt);
+    stmt.run(actualDate, s.zoneid, s.zonename, s.zonetype, s.leaving_num || 0, s.leaving_area || 0, fetchedAt);
   }
   stmt.finalize();
 }
@@ -287,6 +294,8 @@ function saveSecondHandListingSell(db, date, data, fetchedAt) {
  * 保存二手房挂牌出租
  */
 function saveSecondHandListingRent(db, date, data, fetchedAt) {
+  const hr = data.houseReview || {};
+  const actualDate = hr.sysDate || date;
   const stats = data.secondListingRent?.SecondListingRent || [];
   
   const stmt = db.prepare(`
@@ -296,7 +305,7 @@ function saveSecondHandListingRent(db, date, data, fetchedAt) {
   `);
   
   for (const s of stats) {
-    stmt.run(date, s.zoneid, s.zonename, s.leaving_num || 0, s.leaving_area || 0, fetchedAt);
+    stmt.run(actualDate, s.zoneid, s.zonename, s.leaving_num || 0, s.leaving_area || 0, fetchedAt);
   }
   stmt.finalize();
 }
@@ -305,6 +314,8 @@ function saveSecondHandListingRent(db, date, data, fetchedAt) {
  * 保存各区成交排名
  */
 function saveZoneRanking(db, date, data, fetchedAt) {
+  const hr = data.houseReview || {};
+  const actualDate = hr.sysDate || date;
   const stats = data.firstLastMonthRanking?.FirstLastMonth || [];
   
   const stmt = db.prepare(`
@@ -314,7 +325,7 @@ function saveZoneRanking(db, date, data, fetchedAt) {
   `);
   
   for (const s of stats) {
-    stmt.run(date, s.zoneid, s.zonename, s.selledarea || 0, fetchedAt);
+    stmt.run(actualDate, s.zoneid, s.zonename, s.selledarea || 0, fetchedAt);
   }
   stmt.finalize();
 }
@@ -323,6 +334,8 @@ function saveZoneRanking(db, date, data, fetchedAt) {
  * 保存一手房成交排名
  */
 function saveProjectRanking(db, date, data, fetchedAt) {
+  const hr = data.houseReview || {};
+  const actualDate = hr.sysDate || date;
   const stats = data.firstRecentRanking?.FirstRecentRanking || [];
   
   const stmt = db.prepare(`
@@ -332,7 +345,7 @@ function saveProjectRanking(db, date, data, fetchedAt) {
   `);
   
   for (const s of stats) {
-    stmt.run(date, s.projectid, s.projectname, s.name, s.selled_count || 0, s.leavingcount || 0, s.selled_averageprice, fetchedAt);
+    stmt.run(actualDate, s.projectid, s.projectname, s.name, s.selled_count || 0, s.leavingcount || 0, s.selled_averageprice, fetchedAt);
   }
   stmt.finalize();
 }
