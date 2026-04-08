@@ -1,0 +1,17 @@
+{
+  "name": "shanghai-re-data",
+  "version": "1.0.0",
+  "description": "自动采集上海房地产交易中心（[https://www.fangdi.com.cn](https://www.fangdi.com.cn)）每日成交数据。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "playwright": "^1.59.1",
+    "sqlite3": "^6.0.1"
+  }
+}
