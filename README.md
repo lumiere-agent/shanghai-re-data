@@ -2,107 +2,115 @@
 
 自动采集上海房地产交易中心（[https://www.fangdi.com.cn](https://www.fangdi.com.cn)）每日成交数据。
 
-## 数据说明
+## 数据存储
 
-### 每日成交概况 (houseReview)
+- **SQLite 数据库**: `data/fangdi.db`
+- **JSON 备份**: `data/re_data_YYYY-MM-DD.json`
 
-| 字段 | 类型 | 说明 |
-|------|------|------|
-| `sysDate` | string | 数据日期 (YYYY-MM-DD) |
-| `todayselledcount` | int | 今日成交套数 |
-| `todayselledarea` | double | 今日成交面积 (m²) |
-| `listHouseReview` | array | 总成交数据 [{count, area}] |
-| `listHouseReview2` | array | 商业办公类成交 [{count, area}] |
-| `listHouseReview3` | array | 二手住宅成交 [{count, area}] |
-| `listHouseReview4` | array | 新建商品房成交 [{count, area}] |
-| `listHouseReview5` | array | 其他类型成交 [6项数据] |
-| `listHouseReview6` | array | 详细分类数据 [{dcount,darea,pcount,parea,ecount,earea}] |
+## 数据库表结构
 
-### 一手房交易统计 (firstTransactionStat)
-
-按区域统计的一手房交易数据。
+### daily_summary - 每日成交概况
 
 | 字段 | 类型 | 说明 |
 |------|------|------|
-| `zoneid` | string | 区域ID |
-| `zonename` | string | 区域名称 (如"浦东新区"、"黄浦区") |
-| `sign_num` | int | 当期签约套数 |
-| `sign_area` | double | 当期签约面积 (m²) |
-| `sign_avgprice` | double | 当期签约均价 (元/m²) |
-| `all_sign_num` | int | 累计签约套数 |
-| `all_sign_area` | double | 累计签约面积 (m²) |
-| `all_sign_avgprice` | double | 累计签约均价 (元/m²) |
-| `z_sign_num` | int | 住宅签约套数 |
-| `z_sign_area` | double | 住宅签约面积 |
-| `z_sign_avgprice` | double | 住宅签约均价 |
-| `s_sign_num` | int | 商业签约套数 |
-| `s_sign_area` | double | 商业签约面积 |
-| `q_sign_num` | int | 其他签约套数 |
+| id | INTEGER | 主键 |
+| date | TEXT | 数据日期 (YYYY-MM-DD) |
+| sys_date | TEXT | 系统日期 |
+| today_selled_count | INTEGER | 今日成交套数 |
+| today_selled_area | REAL | 今日成交面积 (m²) |
+| total_count | INTEGER | 总成交套数 |
+| total_area | REAL | 总成交面积 (m²) |
+| commercial_count | INTEGER | 商业办公成交套数 |
+| commercial_area | REAL | 商业办公成交面积 |
+| second_hand_count | INTEGER | 二手住宅成交套数 |
+| second_hand_area | REAL | 二手住宅成交面积 |
+| new_house_count | INTEGER | 新建商品房成交套数 |
+| new_house_area | REAL | 新建商品房成交面积 |
+| fetched_at | TEXT | 采集时间 |
 
-### 一手房可售统计 (firstvendibilityStat)
-
-| 字段 | 类型 | 说明 |
-|------|------|------|
-| `zoneid` | string | 区域ID |
-| `zonename` | string | 区域名称 |
-| `z_leaving_num` | int | 住宅当前可售套数 |
-| `z_leaving_area` | double | 住宅当前可售面积 (m²) |
-| `z_leaving_num_p` | int | 住宅上一周期可售套数 |
-| `s_leaving_num` | int | 商业可售套数 |
-| `s_leaving_area` | double | 商业可售面积 |
-| `b_leaving_num` | int | 办公可售套数 |
-| `b_leaving_area` | double | 办公可售面积 |
-
-### 二手房挂牌出售 (secondListingSell)
+### first_hand_transaction - 一手房交易统计
 
 | 字段 | 类型 | 说明 |
 |------|------|------|
-| `zoneid` | string | 区域ID |
-| `zonename` | string | 区域名称 |
-| `leaving_num` | int | 挂牌套数 |
-| `leaving_area` | double | 挂牌面积 (m²) |
-| `zonetype` | string | 区域类型 |
+| id | INTEGER | 主键 |
+| date | TEXT | 数据日期 |
+| zone_id | TEXT | 区域ID |
+| zone_name | TEXT | 区域名称 |
+| sign_num | INTEGER | 当期签约套数 |
+| sign_area | REAL | 当期签约面积 (m²) |
+| sign_avg_price | REAL | 当期签约均价 (元/m²) |
+| all_sign_num | INTEGER | 累计签约套数 |
+| all_sign_area | REAL | 累计签约面积 |
+| all_sign_avg_price | REAL | 累计签约均价 |
+| residence_sign_num | INTEGER | 住宅签约套数 |
+| residence_sign_area | REAL | 住宅签约面积 |
+| residence_sign_avg_price | REAL | 住宅签约均价 |
+| commercial_sign_num | INTEGER | 商业签约套数 |
+| commercial_sign_area | REAL | 商业签约面积 |
+| other_sign_num | INTEGER | 其他签约套数 |
+| other_sign_area | REAL | 其他签约面积 |
 
-### 二手房挂牌出租 (secondListingRent)
-
-| 字段 | 类型 | 说明 |
-|------|------|------|
-| `zoneid` | string | 区域ID |
-| `zonename` | string | 区域名称 |
-| `leaving_num` | int | 挂牌套数 |
-| `leaving_area` | double | 挂牌面积 (m²) |
-
-### 各区成交排名 (firstLastMonthRanking)
-
-| 字段 | 类型 | 说明 |
-|------|------|------|
-| `zoneid` | string | 区域ID |
-| `zonename` | string | 区域名称 |
-| `selledarea` | double | 成交面积 (m²) |
-
-### 一手房成交排名 (firstRecentRanking)
+### first_hand_inventory - 一手房可售统计
 
 | 字段 | 类型 | 说明 |
 |------|------|------|
-| `projectid` | string | 项目ID |
-| `projectname` | string | 项目名称 |
-| `name` | string | 区域名称 |
-| `selled_count` | int | 成交套数 |
-| `leavingcount` | int | 可售套数 |
-| `selled_averageprice` | double | 成交均价 (可能为null) |
+| id | INTEGER | 主键 |
+| date | TEXT | 数据日期 |
+| zone_id | TEXT | 区域ID |
+| zone_name | TEXT | 区域名称 |
+| residence_leaving_num | INTEGER | 住宅当前可售套数 |
+| residence_leaving_area | REAL | 住宅当前可售面积 |
+| residence_prev_num | INTEGER | 住宅上一周期可售套数 |
+| commercial_leaving_num | INTEGER | 商业可售套数 |
+| commercial_leaving_area | REAL | 商业可售面积 |
+| office_leaving_num | INTEGER | 办公可售套数 |
+| office_leaving_area | REAL | 办公可售面积 |
 
-### 房价构成 (firstPriceConstitute)
+### second_hand_listing_sell - 二手房挂牌出售
 
 | 字段 | 类型 | 说明 |
 |------|------|------|
-| `classifycode` | string | 分类代码 (8/9/10 代表不同价格区间) |
-| `selledcount` | int | 成交套数 |
-| `selledarea` | double | 成交面积 |
-| `selledpercent` | double | 成交比例 |
+| id | INTEGER | 主键 |
+| date | TEXT | 数据日期 |
+| zone_id | TEXT | 区域ID |
+| zone_name | TEXT | 区域名称 |
+| zone_type | TEXT | 区域类型 |
+| leaving_num | INTEGER | 挂牌套数 |
+| leaving_area | REAL | 挂牌面积 (m²) |
 
-### 住宅统计 (firstResidenceStat)
+### second_hand_listing_rent - 二手房挂牌出租
 
-同 `firstTransactionStat`，按住宅类型细分。
+| 字段 | 类型 | 说明 |
+|------|------|------|
+| id | INTEGER | 主键 |
+| date | TEXT | 数据日期 |
+| zone_id | TEXT | 区域ID |
+| zone_name | TEXT | 区域名称 |
+| leaving_num | INTEGER | 挂牌套数 |
+| leaving_area | REAL | 挂牌面积 (m²) |
+
+### zone_ranking - 各区成交排名
+
+| 字段 | 类型 | 说明 |
+|------|------|------|
+| id | INTEGER | 主键 |
+| date | TEXT | 数据日期 |
+| zone_id | TEXT | 区域ID |
+| zone_name | TEXT | 区域名称 |
+| selled_area | REAL | 成交面积 (m²) |
+
+### project_ranking - 一手房成交排名
+
+| 字段 | 类型 | 说明 |
+|------|------|------|
+| id | INTEGER | 主键 |
+| date | TEXT | 数据日期 |
+| project_id | TEXT | 项目ID |
+| project_name | TEXT | 项目名称 |
+| zone_name | TEXT | 区域名称 |
+| selled_count | INTEGER | 成交套数 |
+| leaving_count | INTEGER | 可售套数 |
+| selled_avg_price | REAL | 成交均价 (元/m²) |
 
 ## API 接口
 
@@ -122,13 +130,12 @@
 
 **注意**: API 需要先访问主页建立会话，建议使用 Playwright 版本。
 
-## 使用方法
+## 安装和使用
 
 ### 安装依赖
 
 ```bash
-npm install playwright
-npx playwright install chromium
+npm install
 ```
 
 ### 运行采集脚本
@@ -141,57 +148,57 @@ node scripts/fetch_data.js
 node scripts/fetch_data.js 2026-04-01
 ```
 
-### 查看数据
-
-数据保存在 `data/re_data_YYYY-MM-DD.json`，每次采集覆盖 `data/latest.json`。
-
-## 定时任务设置
-
-### 每日自动采集
-
-使用 cron 设置每天早上 9 点自动采集：
+### 查看数据库
 
 ```bash
-# 编辑 crontab
-crontab -e
+sqlite3 data/fangdi.db ".tables"
+sqlite3 data/fangdi.db "SELECT * FROM daily_summary;"
+sqlite3 data/fangdi.db "SELECT zone_name, selled_area FROM zone_ranking ORDER BY selled_area DESC LIMIT 10;"
 ```
 
-添加以下行：
+## 定时任务
 
-```cron
-0 9 * * * cd /home/node/.openclaw/workspace-teamleader/shanghai-re-data && node scripts/fetch_data.js >> logs/cron.log 2>&1
-```
-
-### 创建日志目录
+### 设置 Cron
 
 ```bash
-mkdir -p /home/node/.openclaw/workspace-teamleader/shanghai-re-data/logs
+./scripts/setup_cron.sh
 ```
 
-### 查看定时任务
+### 查看 Cron 状态
 
 ```bash
 crontab -l
 ```
 
-### 日志位置
+### 查看日志
 
-- 控制台输出: `logs/cron.log`
-- 数据文件: `data/re_data_YYYY-MM-DD.json`
-
-## 数据文件格式
-
-```json
-{
-  "date": "2026-04-07",
-  "fetchedAt": "2026-04-08T03:10:55.042Z",
-  "data": {
-    "houseReview": { ... },
-    "firstTransactionStat": { ... },
-    ...
-  }
-}
+```bash
+tail -f logs/cron.log
 ```
+
+## 数据示例
+
+### 每日成交概况 (2026-04-07)
+
+```
+数据日期: 2026-04-07
+今日成交套数: 0
+今日成交面积: 0 m²
+总成交套数: 377
+总成交面积: 29053.51 m²
+新建商品房成交: 94 套 / 11847.92 m²
+二手住宅成交: 14 套 / 618.42 m²
+```
+
+### 各区成交排名 TOP 5
+
+| 区域 | 成交面积 (m²) |
+|------|---------------|
+| 浦东新区 | 437,858.81 |
+| 闵行区 | 185,766.47 |
+| 嘉定区 | 137,617.67 |
+| 松江区 | 102,040.74 |
+| 青浦区 | 100,889.93 |
 
 ## 注意事项
 
@@ -199,3 +206,4 @@ crontab -l
 2. 脚本使用 Playwright 模拟浏览器访问
 3. 每日数据一般在当天 24:00 后更新
 4. 成交数据可能为 0（周末或节假日无成交）
+5. 数据库文件 `fangdi.db` 在本地生成，不会上传到 GitHub

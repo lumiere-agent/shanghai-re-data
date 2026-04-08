@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+
+# Database files (built locally)
+data/fangdi.db
+data/*.db
+
+# JSON backups (optional, keeping SQLite as source of truth)
+data/re_data_*.json
+data/latest.json
+
+# Logs
+logs/*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
