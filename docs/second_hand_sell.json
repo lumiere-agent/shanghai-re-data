@@ -1,211 +1,211 @@
 [
   {
-    "id": 269,
-    "date": "2026-04-07",
+    "id": 307,
+    "date": "2026-04-11",
     "zone_id": "5391be55e75e5506",
     "zone_name": "浦东新区",
     "zone_type": "2",
     "leaving_num": 766,
     "leaving_area": 60315.59,
-    "fetched_at": "2026-04-08T06:12:35.448Z",
-    "created_at": "2026-04-08 06:12:36"
+    "fetched_at": "2026-04-12T09:00:10.167Z",
+    "created_at": "2026-04-12 09:00:11"
   },
   {
-    "id": 270,
-    "date": "2026-04-07",
+    "id": 308,
+    "date": "2026-04-11",
     "zone_id": "e5cf885d0ef25e94",
     "zone_name": "闵行区",
     "zone_type": "2",
     "leaving_num": 665,
     "leaving_area": 67130.93,
-    "fetched_at": "2026-04-08T06:12:35.448Z",
-    "created_at": "2026-04-08 06:12:36"
+    "fetched_at": "2026-04-12T09:00:10.167Z",
+    "created_at": "2026-04-12 09:00:11"
   },
   {
-    "id": 271,
-    "date": "2026-04-07",
+    "id": 309,
+    "date": "2026-04-11",
     "zone_id": "53c7b05ea45cf006",
     "zone_name": "徐汇区",
     "zone_type": "2",
     "leaving_num": 319,
     "leaving_area": 24234.15,
-    "fetched_at": "2026-04-08T06:12:35.448Z",
-    "created_at": "2026-04-08 06:12:36"
+    "fetched_at": "2026-04-12T09:00:10.167Z",
+    "created_at": "2026-04-12 09:00:11"
   },
   {
-    "id": 272,
-    "date": "2026-04-07",
+    "id": 310,
+    "date": "2026-04-11",
     "zone_id": "9999a061b2bf2968",
     "zone_name": "普陀区",
     "zone_type": "2",
     "leaving_num": 269,
     "leaving_area": 19819.41,
-    "fetched_at": "2026-04-08T06:12:35.448Z",
-    "created_at": "2026-04-08 06:12:37"
+    "fetched_at": "2026-04-12T09:00:10.167Z",
+    "created_at": "2026-04-12 09:00:11"
   },
   {
-    "id": 273,
-    "date": "2026-04-07",
+    "id": 311,
+    "date": "2026-04-11",
     "zone_id": "5560708b21685990",
     "zone_name": "杨浦区",
     "zone_type": "2",
     "leaving_num": 228,
     "leaving_area": 17422.67,
-    "fetched_at": "2026-04-08T06:12:35.448Z",
-    "created_at": "2026-04-08 06:12:37"
+    "fetched_at": "2026-04-12T09:00:10.167Z",
+    "created_at": "2026-04-12 09:00:11"
   },
   {
-    "id": 274,
-    "date": "2026-04-07",
+    "id": 312,
+    "date": "2026-04-11",
     "zone_id": "e153da3d0ca1946e",
     "zone_name": "虹口区",
     "zone_type": "2",
     "leaving_num": 185,
     "leaving_area": 15800.94,
-    "fetched_at": "2026-04-08T06:12:35.448Z",
-    "created_at": "2026-04-08 06:12:37"
+    "fetched_at": "2026-04-12T09:00:10.167Z",
+    "created_at": "2026-04-12 09:00:11"
   },
   {
-    "id": 275,
-    "date": "2026-04-07",
+    "id": 313,
+    "date": "2026-04-11",
     "zone_id": "2385fa574f10a564",
     "zone_name": "宝山区",
     "zone_type": "2",
     "leaving_num": 169,
     "leaving_area": 12084.31,
-    "fetched_at": "2026-04-08T06:12:35.448Z",
-    "created_at": "2026-04-08 06:12:37"
+    "fetched_at": "2026-04-12T09:00:10.167Z",
+    "created_at": "2026-04-12 09:00:11"
   },
   {
-    "id": 276,
-    "date": "2026-04-07",
+    "id": 314,
+    "date": "2026-04-11",
     "zone_id": "c25cb8e534080b41",
     "zone_name": "长宁区",
     "zone_type": "2",
     "leaving_num": 108,
     "leaving_area": 11852.17,
-    "fetched_at": "2026-04-08T06:12:35.448Z",
-    "created_at": "2026-04-08 06:12:37"
+    "fetched_at": "2026-04-12T09:00:10.167Z",
+    "created_at": "2026-04-12 09:00:11"
   },
   {
-    "id": 277,
-    "date": "2026-04-07",
+    "id": 315,
+    "date": "2026-04-11",
     "zone_id": "c3a04b33d3238385",
     "zone_name": "松江区",
     "zone_type": "2",
     "leaving_num": 74,
     "leaving_area": 10282.15,
-    "fetched_at": "2026-04-08T06:12:35.448Z",
-    "created_at": "2026-04-08 06:12:37"
+    "fetched_at": "2026-04-12T09:00:10.167Z",
+    "created_at": "2026-04-12 09:00:11"
   },
   {
-    "id": 278,
-    "date": "2026-04-07",
+    "id": 316,
+    "date": "2026-04-11",
     "zone_id": "d095fa89de83a452",
     "zone_name": "嘉定区",
     "zone_type": "2",
     "leaving_num": 73,
     "leaving_area": 12202.13,
-    "fetched_at": "2026-04-08T06:12:35.448Z",
-    "created_at": "2026-04-08 06:12:37"
+    "fetched_at": "2026-04-12T09:00:10.167Z",
+    "created_at": "2026-04-12 09:00:11"
   },
   {
-    "id": 279,
-    "date": "2026-04-07",
+    "id": 317,
+    "date": "2026-04-11",
     "zone_id": "3e9d0ed5cf865b9b",
     "zone_name": "静安区",
     "zone_type": "2",
     "leaving_num": 71,
     "leaving_area": 5841.35,
-    "fetched_at": "2026-04-08T06:12:35.448Z",
-    "created_at": "2026-04-08 06:12:37"
+    "fetched_at": "2026-04-12T09:00:10.167Z",
+    "created_at": "2026-04-12 09:00:11"
   },
   {
-    "id": 280,
-    "date": "2026-04-07",
+    "id": 318,
+    "date": "2026-04-11",
     "zone_id": "5591ec7dfc0c3b7b",
     "zone_name": "南汇区",
     "zone_type": "2",
     "leaving_num": 48,
     "leaving_area": 75545.19,
-    "fetched_at": "2026-04-08T06:12:35.448Z",
-    "created_at": "2026-04-08 06:12:37"
+    "fetched_at": "2026-04-12T09:00:10.167Z",
+    "created_at": "2026-04-12 09:00:11"
   },
   {
-    "id": 281,
-    "date": "2026-04-07",
+    "id": 319,
+    "date": "2026-04-11",
     "zone_id": "27d3af3bd45acf5e",
     "zone_name": "黄浦区",
     "zone_type": "2",
     "leaving_num": 34,
     "leaving_area": 2646.82,
-    "fetched_at": "2026-04-08T06:12:35.448Z",
-    "created_at": "2026-04-08 06:12:37"
+    "fetched_at": "2026-04-12T09:00:10.167Z",
+    "created_at": "2026-04-12 09:00:11"
   },
   {
-    "id": 282,
-    "date": "2026-04-07",
+    "id": 320,
+    "date": "2026-04-11",
     "zone_id": "1c1f50e015c71814",
     "zone_name": "金山区",
     "zone_type": "2",
     "leaving_num": 23,
     "leaving_area": 2435.77,
-    "fetched_at": "2026-04-08T06:12:35.448Z",
-    "created_at": "2026-04-08 06:12:37"
+    "fetched_at": "2026-04-12T09:00:10.167Z",
+    "created_at": "2026-04-12 09:00:11"
   },
   {
-    "id": 283,
-    "date": "2026-04-07",
+    "id": 321,
+    "date": "2026-04-11",
     "zone_id": "45c69c52e212e98d",
     "zone_name": "奉贤区",
     "zone_type": "2",
     "leaving_num": 22,
     "leaving_area": 2057.78,
-    "fetched_at": "2026-04-08T06:12:35.448Z",
-    "created_at": "2026-04-08 06:12:37"
+    "fetched_at": "2026-04-12T09:00:10.167Z",
+    "created_at": "2026-04-12 09:00:11"
   },
   {
-    "id": 284,
-    "date": "2026-04-07",
+    "id": 322,
+    "date": "2026-04-11",
     "zone_id": "ef8c008816798859",
     "zone_name": "青浦区",
     "zone_type": "2",
     "leaving_num": 17,
     "leaving_area": 2527.09,
-    "fetched_at": "2026-04-08T06:12:35.448Z",
-    "created_at": "2026-04-08 06:12:37"
+    "fetched_at": "2026-04-12T09:00:10.167Z",
+    "created_at": "2026-04-12 09:00:11"
   },
   {
-    "id": 285,
-    "date": "2026-04-07",
+    "id": 323,
+    "date": "2026-04-11",
     "zone_id": "d6ff877c62587d67",
     "zone_name": "崇明区",
     "zone_type": "2",
     "leaving_num": 8,
     "leaving_area": 600.64,
-    "fetched_at": "2026-04-08T06:12:35.448Z",
-    "created_at": "2026-04-08 06:12:37"
+    "fetched_at": "2026-04-12T09:00:10.167Z",
+    "created_at": "2026-04-12 09:00:11"
   },
   {
-    "id": 286,
-    "date": "2026-04-07",
+    "id": 324,
+    "date": "2026-04-11",
     "zone_id": "c3243f2018413f06",
     "zone_name": "卢湾区",
     "zone_type": "2",
     "leaving_num": 4,
     "leaving_area": 347.18,
-    "fetched_at": "2026-04-08T06:12:35.448Z",
-    "created_at": "2026-04-08 06:12:37"
+    "fetched_at": "2026-04-12T09:00:10.167Z",
+    "created_at": "2026-04-12 09:00:11"
   },
   {
-    "id": 287,
-    "date": "2026-04-07",
+    "id": 325,
+    "date": "2026-04-11",
     "zone_id": "dc24b8a987de1555",
     "zone_name": "闸北区",
     "zone_type": "2",
     "leaving_num": 1,
     "leaving_area": 36.24,
-    "fetched_at": "2026-04-08T06:12:35.448Z",
-    "created_at": "2026-04-08 06:12:38"
+    "fetched_at": "2026-04-12T09:00:10.167Z",
+    "created_at": "2026-04-12 09:00:11"
   }
 ]
