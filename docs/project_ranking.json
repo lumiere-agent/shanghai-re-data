@@ -1,122 +1,122 @@
 [
   {
-    "id": 163,
-    "date": "2026-04-11",
+    "id": 173,
+    "date": "2026-04-12",
     "project_id": "afd72dd331f09179",
     "project_name": "龙湾璟苑",
     "zone_name": "金山区",
-    "selled_count": 255,
-    "leaving_count": 2138,
+    "selled_count": 336,
+    "leaving_count": 2057,
     "selled_avg_price": null,
-    "fetched_at": "2026-04-12T09:00:10.167Z",
-    "created_at": "2026-04-12 09:00:10"
+    "fetched_at": "2026-04-13T09:00:20.139Z",
+    "created_at": "2026-04-13 09:00:21"
   },
   {
-    "id": 164,
-    "date": "2026-04-11",
+    "id": 174,
+    "date": "2026-04-12",
     "project_id": "704c7c19cf411039",
     "project_name": "奕瑭华庭",
     "zone_name": "浦东新区",
-    "selled_count": 166,
-    "leaving_count": 129,
+    "selled_count": 128,
+    "leaving_count": 124,
     "selled_avg_price": null,
-    "fetched_at": "2026-04-12T09:00:10.167Z",
-    "created_at": "2026-04-12 09:00:11"
+    "fetched_at": "2026-04-13T09:00:20.139Z",
+    "created_at": "2026-04-13 09:00:21"
   },
   {
-    "id": 165,
-    "date": "2026-04-11",
+    "id": 175,
+    "date": "2026-04-12",
     "project_id": "8421cf8fa1eeca9d",
     "project_name": "思致商业广场三期",
     "zone_name": "金山区",
     "selled_count": 99,
     "leaving_count": 512,
     "selled_avg_price": null,
-    "fetched_at": "2026-04-12T09:00:10.167Z",
-    "created_at": "2026-04-12 09:00:11"
+    "fetched_at": "2026-04-13T09:00:20.139Z",
+    "created_at": "2026-04-13 09:00:21"
   },
   {
-    "id": 166,
-    "date": "2026-04-11",
+    "id": 176,
+    "date": "2026-04-12",
     "project_id": "d3b1a6099c35d542",
     "project_name": "匡巷二村",
     "zone_name": "嘉定区",
     "selled_count": 94,
     "leaving_count": 228,
     "selled_avg_price": null,
-    "fetched_at": "2026-04-12T09:00:10.167Z",
-    "created_at": "2026-04-12 09:00:11"
+    "fetched_at": "2026-04-13T09:00:20.139Z",
+    "created_at": "2026-04-13 09:00:21"
   },
   {
-    "id": 167,
-    "date": "2026-04-11",
+    "id": 177,
+    "date": "2026-04-12",
     "project_id": "7c784e110bc323c5",
     "project_name": "科茵兰庭",
     "zone_name": "浦东新区",
-    "selled_count": 76,
-    "leaving_count": 580,
+    "selled_count": 77,
+    "leaving_count": 579,
     "selled_avg_price": null,
-    "fetched_at": "2026-04-12T09:00:10.167Z",
-    "created_at": "2026-04-12 09:00:11"
+    "fetched_at": "2026-04-13T09:00:20.139Z",
+    "created_at": "2026-04-13 09:00:21"
   },
   {
-    "id": 168,
-    "date": "2026-04-11",
+    "id": 178,
+    "date": "2026-04-12",
+    "project_id": "91271abbf65b0d7e",
+    "project_name": "金海华城云昌佳苑",
+    "zone_name": "浦东新区",
+    "selled_count": 76,
+    "leaving_count": 1052,
+    "selled_avg_price": null,
+    "fetched_at": "2026-04-13T09:00:20.139Z",
+    "created_at": "2026-04-13 09:00:21"
+  },
+  {
+    "id": 179,
+    "date": "2026-04-12",
     "project_id": "2fece5b4c3142845",
     "project_name": "珺湾雅园",
     "zone_name": "杨浦区",
     "selled_count": 65,
     "leaving_count": 69,
     "selled_avg_price": null,
-    "fetched_at": "2026-04-12T09:00:10.167Z",
-    "created_at": "2026-04-12 09:00:11"
+    "fetched_at": "2026-04-13T09:00:20.139Z",
+    "created_at": "2026-04-13 09:00:21"
   },
   {
-    "id": 169,
-    "date": "2026-04-11",
+    "id": 180,
+    "date": "2026-04-12",
     "project_id": "ec00a899ea80c328",
     "project_name": "祥泽苑",
     "zone_name": "松江区",
-    "selled_count": 53,
-    "leaving_count": 997,
+    "selled_count": 55,
+    "leaving_count": 995,
     "selled_avg_price": null,
-    "fetched_at": "2026-04-12T09:00:10.167Z",
-    "created_at": "2026-04-12 09:00:11"
+    "fetched_at": "2026-04-13T09:00:20.139Z",
+    "created_at": "2026-04-13 09:00:21"
   },
   {
-    "id": 170,
-    "date": "2026-04-11",
+    "id": 181,
+    "date": "2026-04-12",
     "project_id": "ada355be1a07eca2",
     "project_name": "科宸云筑",
     "zone_name": "浦东新区",
     "selled_count": 51,
     "leaving_count": 608,
     "selled_avg_price": null,
-    "fetched_at": "2026-04-12T09:00:10.167Z",
-    "created_at": "2026-04-12 09:00:11"
+    "fetched_at": "2026-04-13T09:00:20.139Z",
+    "created_at": "2026-04-13 09:00:21"
   },
   {
-    "id": 171,
-    "date": "2026-04-11",
+    "id": 182,
+    "date": "2026-04-12",
     "project_id": "8fbde5db518ca368",
     "project_name": "惠诚悦华里",
     "zone_name": "浦东新区",
     "selled_count": 48,
     "leaving_count": 170,
     "selled_avg_price": null,
-    "fetched_at": "2026-04-12T09:00:10.167Z",
-    "created_at": "2026-04-12 09:00:11"
-  },
-  {
-    "id": 172,
-    "date": "2026-04-11",
-    "project_id": "91271abbf65b0d7e",
-    "project_name": "金海华城云昌佳苑",
-    "zone_name": "浦东新区",
-    "selled_count": 46,
-    "leaving_count": 1082,
-    "selled_avg_price": null,
-    "fetched_at": "2026-04-12T09:00:10.167Z",
-    "created_at": "2026-04-12 09:00:11"
+    "fetched_at": "2026-04-13T09:00:20.139Z",
+    "created_at": "2026-04-13 09:00:21"
   }
 ]
