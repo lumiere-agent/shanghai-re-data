@@ -1,5 +1,22 @@
 [
   {
+    "id": 28,
+    "date": "2026-05-09",
+    "sys_date": "2026-05-09",
+    "today_selled_count": 0,
+    "today_selled_area": 0,
+    "total_count": 167,
+    "total_area": 11965.83,
+    "commercial_count": 11,
+    "commercial_area": 589.13,
+    "second_hand_count": 13,
+    "second_hand_area": 946.37,
+    "new_house_count": 170,
+    "new_house_area": 19924.45,
+    "fetched_at": "2026-05-10T09:00:12.821Z",
+    "created_at": "2026-05-10 09:00:13"
+  },
+  {
     "id": 27,
     "date": "2026-05-08",
     "sys_date": "2026-05-08",
